@@ -21,7 +21,7 @@ public class TextSearchService {
 
     @PostConstruct
     public void runAfterStartup() {
-        String[] urls = {"https://oxio.ca/en"};  //input websites to be crawled
+        String[] urls = {"https://oxio.ca/en","https://www.rogers.com/"};  //input websites to be crawled
         for (String url : urls) {
             SeleniumCrawler.crawlAndSave(url.trim(), 3);
         }
