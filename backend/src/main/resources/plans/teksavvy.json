@@ -1,0 +1,194 @@
+{
+    "address": "11 Jeffrey St, Barrie, ON, L4M5H5",
+    "package plan": [
+        {
+            "features": {
+                "usage limit": "Unlimited",
+                "upload speed": "30 Mbps",
+                "download speed": "100 Mbps",
+                "ideal for": "households of 3"
+            },
+            "price": "$38.95",
+            "description": "Receive a $36/month bill credit for your first 12 months, $0 hardware loan, $0 activation and $0 shipping. Power up your home internet.",
+            "title": "100 MBPS UNLIMITED"
+        },
+        {
+            "features": {
+                "usage limit": "Unlimited",
+                "upload speed": "50 Mbps",
+                "download speed": "1024 Mbps",
+                "ideal for": "households of 5+"
+            },
+            "price": "$71.95",
+            "description": "Receive a $49/month bill credit for your first 12 months, $0 hardware loan, $0 activation and $0 shipping. Power up your home internet.",
+            "title": "1 GBPS UNLIMITED"
+        },
+        {
+            "features": {
+                "usage limit": "Unlimited",
+                "upload speed": "5 Mbps",
+                "download speed": "30 Mbps",
+                "ideal for": "households of 2"
+            },
+            "price": "$32.95",
+            "description": "Receive a $33/month bill credit for your first 12 months, $0 hardware loan, $0 activation and $0 shipping. Power up your home internet.",
+            "title": "30 MBPS UNLIMITED"
+        },
+        {
+            "features": {
+                "usage limit": "Unlimited",
+                "upload speed": "940 Mbps",
+                "download speed": "1500 Mbps",
+                "ideal for": "households of 5+"
+            },
+            "price": "$99.95",
+            "description": "Receive a $20/month bill credit for your first 12 months, $0 hardware loan, $0 activation and $0 shipping. Power up your home internet.",
+            "title": "1.5 GBPS UNLIMITED"
+        },
+        {
+            "features": {
+                "usage limit": "Unlimited",
+                "upload speed": "30 Mbps",
+                "download speed": "500 Mbps",
+                "ideal for": "households of 5+"
+            },
+            "price": "$75.95",
+            "description": "Waiting for a download is so 2000's. Download movies, music, games or whatever in seconds without sacrificing network speed on your other connected devices.",
+            "title": "500 MBPS UNLIMITED"
+        },
+        {
+            "features": {
+                "usage limit": "Unlimited",
+                "upload speed": "30 Mbps",
+                "download speed": "300 Mbps",
+                "ideal for": "households of 5+"
+            },
+            "price": "$72.95",
+            "description": "Receive a $28/month bill credit for your first 12 months, $0 hardware loan, $0 activation and $0 shipping. Power up your home internet.",
+            "title": "300 MBPS UNLIMITED"
+        },
+        {
+            "features": {
+                "usage limit": "Unlimited",
+                "upload speed": "10 Mbps",
+                "download speed": "25 Mbps",
+                "ideal for": "households of 2"
+            },
+            "price": "$65.95",
+            "description": "Share, stream and game - across multiple devices, all at the same time. Perfect for a home with a handful of devices that are in use simultaneously.",
+            "title": "25 MBPS UNLIMITED"
+        }
+    ],
+    "internet plan": [
+        {
+            "features": {
+                "usage limit": "Unlimited",
+                "upload speed": "30 Mbps",
+                "download speed": "100 Mbps",
+                "ideal for": "households of 3"
+            },
+            "price": "$38.95",
+            "description": "Receive a $36/month bill credit for your first 12 months, $0 hardware loan, $0 activation and $0 shipping. Power up your home internet.",
+            "title": "100 MBPS UNLIMITED"
+        },
+        {
+            "features": {
+                "usage limit": "Unlimited",
+                "upload speed": "50 Mbps",
+                "download speed": "1024 Mbps",
+                "ideal for": "households of 5+"
+            },
+            "price": "$71.95",
+            "description": "Receive a $49/month bill credit for your first 12 months, $0 hardware loan, $0 activation and $0 shipping. Power up your home internet.",
+            "title": "1 GBPS UNLIMITED"
+        },
+        {
+            "features": {
+                "usage limit": "Unlimited",
+                "upload speed": "5 Mbps",
+                "download speed": "30 Mbps",
+                "ideal for": "households of 2"
+            },
+            "price": "$32.95",
+            "description": "Receive a $33/month bill credit for your first 12 months, $0 hardware loan, $0 activation and $0 shipping. Power up your home internet.",
+            "title": "30 MBPS UNLIMITED"
+        },
+        {
+            "features": {
+                "usage limit": "Unlimited",
+                "upload speed": "940 Mbps",
+                "download speed": "1500 Mbps",
+                "ideal for": "households of 5+"
+            },
+            "price": "$99.95",
+            "description": "Receive a $20/month bill credit for your first 12 months, $0 hardware loan, $0 activation and $0 shipping. Power up your home internet.",
+            "title": "1.5 GBPS UNLIMITED"
+        },
+        {
+            "features": {
+                "usage limit": "Unlimited",
+                "upload speed": "30 Mbps",
+                "download speed": "500 Mbps",
+                "ideal for": "households of 5+"
+            },
+            "price": "$75.95",
+            "description": "Waiting for a download is so 2000's. Download movies, music, games or whatever in seconds without sacrificing network speed on your other connected devices.",
+            "title": "500 MBPS UNLIMITED"
+        },
+        {
+            "features": {
+                "usage limit": "Unlimited",
+                "upload speed": "30 Mbps",
+                "download speed": "300 Mbps",
+                "ideal for": "households of 5+"
+            },
+            "price": "$72.95",
+            "description": "Receive a $28/month bill credit for your first 12 months, $0 hardware loan, $0 activation and $0 shipping. Power up your home internet.",
+            "title": "300 MBPS UNLIMITED"
+        },
+        {
+            "features": {
+                "usage limit": "Unlimited",
+                "upload speed": "10 Mbps",
+                "download speed": "25 Mbps",
+                "ideal for": "households of 2"
+            },
+            "price": "$65.95",
+            "description": "Share, stream and game - across multiple devices, all at the same time. Perfect for a home with a handful of devices that are in use simultaneously.",
+            "title": "25 MBPS UNLIMITED"
+        },
+        {
+            "features": {
+                "usage limit": "Unlimited",
+                "upload speed": "1 Mbps",
+                "download speed": "10 Mbps",
+                "ideal for": "households of 1"
+            },
+            "price": "$29.95",
+            "description": "Receive a $20/month bill credit for your first 12 months, $0 hardware loan, $0 activation and $0 shipping. Power up your home internet.",
+            "title": "10 MBPS UNLIMITED"
+        },
+        {
+            "features": {
+                "usage limit": "Unlimited",
+                "upload speed": "0.8 Mbps",
+                "download speed": "6 Mbps",
+                "ideal for": "households of 1"
+            },
+            "price": "$48.95",
+            "description": "Only need a few devices connected at a time? This could be the speed for your needs. An economical choice for casual browsing and simple communication.",
+            "title": "6 MBPS UNLIMITED"
+        },
+        {
+            "features": {
+                "usage limit": "200GB",
+                "upload speed": "0.8 Mbps",
+                "download speed": "6 Mbps",
+                "ideal for": "households of 1"
+            },
+            "price": "$43.95",
+            "description": "Only need a few devices connected at a time? This could be the speed for your needs. An economical choice for casual browsing and simple communication.",
+            "title": "6 MBPS LITE"
+        }
+    ]
+}

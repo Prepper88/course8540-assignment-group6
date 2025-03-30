@@ -25,4 +25,7 @@ public class SearchController {
     public List<String> autocomplete(@RequestParam String searchType, @RequestParam String keyword) {
         return searchService.autocomplete(searchType, keyword);
     }
+
+
+
 }

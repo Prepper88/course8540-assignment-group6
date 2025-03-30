@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.uwindsor.comp8547.backend.bean.SearchResponse;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -20,6 +21,10 @@ public class SearchService {
 
     @Autowired
     private SpellCheckService spellCheckService;
+
+    @Autowired
+    private WordCompletionService wordCompletionService;
+
 
     public SearchResponse search(String searchType, String keyword) {
         SearchResponse searchResponse = new SearchResponse();
@@ -48,6 +53,12 @@ public class SearchService {
     }
 
     public List<String> autocomplete(String searchType, String keyword) {
-        return List.of("abc", "def", "ghi");
+        try {
+            return wordCompletionService.getWords(keyword);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return List.of(); // fallback
+        }
     }
+
 }

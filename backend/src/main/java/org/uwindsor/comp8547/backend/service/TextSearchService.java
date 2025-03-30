@@ -21,7 +21,7 @@ public class TextSearchService {
 
     @PostConstruct
     public void runAfterStartup() {
-        String[] urls = {"https://oxio.ca/en"};  //在这里输入要爬取的网址
+        String[] urls = {"https://oxio.ca/en"};  //input websites to be crawled
         for (String url : urls) {
             SeleniumCrawler.crawlAndSave(url.trim(), 3);
         }
@@ -36,8 +36,6 @@ public class TextSearchService {
                 System.out.println("Loaded file: " + file.getName());
             }
         }
-
-
     }
 
 
