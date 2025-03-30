@@ -115,7 +115,7 @@ export default {
         })
 
         console.log('autocomplete: ', response.data)
-        return response.data
+        return response.data.slice(0,5)
       } catch (error) {
         console.log('autocomplete error: ' + error)
       }
