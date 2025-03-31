@@ -14,7 +14,7 @@ import java.util.Scanner;
 @Service
 public class WordCompletionService {
     public ArrayList<String> getWords(String prefix) throws IOException {
-        String path = "backend/src/main/resources/Dictionary/www.teksavvy.com.txt";
+        String path = "src/main/resources/Dictionary/www.teksavvy.com.txt";
         String content = Files.readString(Path.of(path));
         String[] words = content.split("[\\s\\p{Punct}]+");
         Trie trie = new Trie();

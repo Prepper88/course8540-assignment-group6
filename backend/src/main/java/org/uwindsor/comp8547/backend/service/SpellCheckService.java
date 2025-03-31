@@ -15,7 +15,7 @@ import java.util.Map;
 public class SpellCheckService {
 
     public ArrayList<String> getCorrections(String word) throws IOException {
-        String path = "backend/src/main/resources/Dictionary/www.teksavvy.com.txt";
+        String path = "src/main/resources/Dictionary/www.teksavvy.com.txt";
         String content = Files.readString(Path.of(path));
         String[] words = content.split("[\\s\\p{Punct}]+");
         EditDistance editDistance = new EditDistance();
