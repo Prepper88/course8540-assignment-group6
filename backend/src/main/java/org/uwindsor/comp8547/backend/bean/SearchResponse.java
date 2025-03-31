@@ -10,4 +10,5 @@ public class SearchResponse {
     private List<Plan> plans;
     private List<ReItem> reItems;
     private List<TextItem> textItems;
+    private int searchCount;
 }

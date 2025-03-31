@@ -35,10 +35,10 @@ public class PlanDataConfiguration {
 
     private List<Plan> loadXfinityPlans() {
         try {
-            // 读取文件
+            // read file
             Reader reader = new FileReader("src/main/resources/plans/xfinity.json");
 
-            // 定义泛型类型
+            // define generic
             Type planListType = new TypeToken<List<XfinityPlan>>(){}.getType();
 
             List<XfinityPlan> plans = gson.fromJson(reader, planListType);
