@@ -48,17 +48,25 @@ public class SearchService {
                 searchResponse.setTextItems(textSearchService.search(searchType, keyword));
                 break;
         }
+
+        try {
+            List<String> hints;
+            if (wordCompletionService.getWords(keyword).isEmpty()) {
+                hints= spellCheckService.getCorrections(keyword);
+            }else {
+                hints=new ArrayList<String>();
+            }
+
+            searchResponse.setSpellHints(hints);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return searchResponse;
     }
 
     public List<String> autocomplete(String searchType, String keyword) {
         try {
-            ArrayList<String> words= wordCompletionService.getWords(keyword);
-            if(words.size()>0) {
-                return words;
-            }else{
-                return spellCheckService.getCorrections(keyword);
-            }
+            return wordCompletionService.getWords(keyword);
         } catch (IOException e) {
             e.printStackTrace();
             return List.of(); // fallback
