@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.uwindsor.comp8547.backend.bean.SearchResponse;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -29,8 +30,6 @@ public class SearchService {
     public SearchResponse search(String searchType, String keyword) {
         SearchResponse searchResponse = new SearchResponse();
 
-        // Call the spellCheckService to check the keyword
-        searchResponse.setSpellHints(spellCheckService.check(keyword));
 
         // Call the appropriate search service based on the search type
         switch (searchType) {
@@ -54,7 +53,12 @@ public class SearchService {
 
     public List<String> autocomplete(String searchType, String keyword) {
         try {
-            return wordCompletionService.getWords(keyword);
+            ArrayList<String> words= wordCompletionService.getWords(keyword);
+            if(words.size()>0) {
+                return words;
+            }else{
+                return spellCheckService.getCorrections(keyword);
+            }
         } catch (IOException e) {
             e.printStackTrace();
             return List.of(); // fallback
