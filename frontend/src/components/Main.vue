@@ -34,6 +34,16 @@
         <span v-if="spells.length > 0">Did you mean:</span>
         <button v-for="(spell, index) in spells" :key="index">{{ spell }}</button>
       </div>
+
+      <!-- search count message -->
+      <div class="search-count" v-if="searchCount !== -1">
+        <span v-if="searchCount === 0">
+          "{{ searchedKeyword }}" has never been searched before.
+        </span>
+        <span v-else>
+          "{{ searchedKeyword }}" has been searched {{ searchCount }} time<span v-if="searchCount > 1">s</span>.
+        </span>
+      </div>
     </div>
 
     <div class="re-container">
@@ -107,6 +117,8 @@ export default {
       plans: [],
       textItems: [],
       sortKey: '',
+      searchCount: -1,
+      searchedKeyword: '',
     }
   },
   methods: {
@@ -158,6 +170,8 @@ export default {
         this.reItems = response.data.reItems
         this.textItems = response.data.textItems
         this.plans = response.data.plans
+        this.searchedKeyword = this.keyword
+        this.searchCount = response.data.searchCount ?? -1
       } catch (error) {
         console.log('search error: ' + error)
       }
@@ -366,6 +380,13 @@ export default {
   border: 1px solid #ccc;
   border-radius: 6px;
   cursor: pointer;
+}
+
+.search-count {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #333;
+  font-style: italic;
 }
 
 </style>
