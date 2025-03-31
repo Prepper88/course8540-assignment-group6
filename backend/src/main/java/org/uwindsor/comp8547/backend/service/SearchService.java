@@ -26,6 +26,9 @@ public class SearchService {
     @Autowired
     private WordCompletionService wordCompletionService;
 
+    @Autowired
+    private SearchFrequencyService searchFrequencyService;
+
 
     public SearchResponse search(String searchType, String keyword) {
         SearchResponse searchResponse = new SearchResponse();
@@ -56,10 +59,18 @@ public class SearchService {
             }else {
                 hints=new ArrayList<String>();
             }
-
             searchResponse.setSpellHints(hints);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        // Track search count
+        try {
+            int searchCount = searchFrequencyService.incrementKeyword(keyword);
+            searchResponse.setSearchCount(searchCount);
+        } catch (IOException e) {
+            e.printStackTrace();
+            searchResponse.setSearchCount(0);
         }
         return searchResponse;
     }

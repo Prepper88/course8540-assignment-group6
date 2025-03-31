@@ -34,6 +34,16 @@
         <span v-if="spells.length > 0">Did you mean:</span>
         <button v-for="(spell, index) in spells" :key="index">{{ spell }}</button>
       </div>
+
+      <!-- search count message -->
+      <div class="search-count" v-if="searchCount !== -1">
+        <span v-if="searchCount === 0">
+          "{{ searchedKeyword }}" has never been searched before.
+        </span>
+        <span v-else>
+          "{{ searchedKeyword }}" has been searched {{ searchCount }} time<span v-if="searchCount > 1">s</span>.
+        </span>
+      </div>
     </div>
 
     <div class="re-container">
@@ -48,6 +58,19 @@
 
     <div class="text-container">
       <TextItem :text-items="textItems"></TextItem>
+    </div>
+
+    <div class="plan-container-header">
+      <div class="spacer"></div>
+      <div class="sort-controls">
+        <select v-model="sortKey">
+          <option disabled value="">Sort by</option>
+          <option value="price">Price</option>
+          <option value="download">Download Speed</option>
+          <option value="upload">Upload Speed</option>
+        </select>
+        <button @click="sortPlans">Sort</button>
+      </div>
     </div>
 
     <div class="plan-container">
@@ -93,6 +116,9 @@ export default {
       reItems: [],
       plans: [],
       textItems: [],
+      sortKey: '',
+      searchCount: -1,
+      searchedKeyword: '',
     }
   },
   methods: {
@@ -144,6 +170,8 @@ export default {
         this.reItems = response.data.reItems
         this.textItems = response.data.textItems
         this.plans = response.data.plans
+        this.searchedKeyword = this.keyword
+        this.searchCount = response.data.searchCount ?? -1
       } catch (error) {
         console.log('search error: ' + error)
       }
@@ -154,6 +182,28 @@ export default {
         this.suggestions = []
       }
     },
+
+    parseSpeed(speedString) {
+      const match = speedString?.match(/([\d.]+)\s*(Mbps|Gbps)/i);
+      if (!match) return 0;
+      const value = parseFloat(match[1]);
+      const unit = match[2].toLowerCase();
+      return unit === 'gbps' ? value * 1000 : value;
+    },
+    parsePrice(priceString) {
+      const match = priceString?.match(/[\d.]+/);
+      return match ? parseFloat(match[0]) : 0;
+    },
+    sortPlans() {
+      if (this.sortKey === 'price') {
+        this.plans.sort((a, b) => this.parsePrice(a.price) - this.parsePrice(b.price));
+      } else if (this.sortKey === 'upload') {
+        this.plans.sort((a, b) => this.parseSpeed(b.upload) - this.parseSpeed(a.upload));
+      } else if (this.sortKey === 'download') {
+        this.plans.sort((a, b) => this.parseSpeed(b.download) - this.parseSpeed(a.download));
+      }
+    },
+
   },
   mounted() {
     document.addEventListener('click', this.handleClickOutside)
@@ -309,4 +359,34 @@ export default {
 
   padding: 20px;
 }
+
+.plan-container-header {
+  width: 80%;
+  margin: 10px auto 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.sort-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.sort-controls select,
+.sort-controls button {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.search-count {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #333;
+  font-style: italic;
+}
+
 </style>
