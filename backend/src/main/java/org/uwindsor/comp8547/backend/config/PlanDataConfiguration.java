@@ -30,6 +30,7 @@ public class PlanDataConfiguration {
 
         plans.addAll(loadXfinityPlans());
         plans.addAll(loadTekPlans());
+        plans.addAll(loadRogersPlans());
         return planData;
     }
 
@@ -45,6 +46,25 @@ public class PlanDataConfiguration {
 
             reader.close();
             return plans.stream().map(this::convertPlan).collect(Collectors.toList());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return List.of();
+    }
+
+
+    private List<Plan> loadRogersPlans() {
+        try {
+            // read file
+            Reader reader = new FileReader("src/main/resources/plans/Rogers.json");
+
+            // define generic
+            Type planListType = new TypeToken<List<XfinityPlan>>(){}.getType();
+
+            List<XfinityPlan> plans = gson.fromJson(reader, planListType);
+
+            reader.close();
+            return plans.stream().map(this::convertRogersPlan).collect(Collectors.toList());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -90,6 +110,17 @@ public class PlanDataConfiguration {
             e.printStackTrace();
             return List.of(); // return empty list on error
         }
+    }
+
+    private Plan convertRogersPlan(XfinityPlan xfinityPlan) {
+        Plan plan = new Plan();
+        plan.setName(xfinityPlan.getName());
+        plan.setPrice(String.format("$%.2f/Mon.", xfinityPlan.getPrice()));
+        plan.setDownload(xfinityPlan.getSpeedTier());
+        plan.setUpload(xfinityPlan.getSpeedTier());
+        plan.setVendor("Rogers");
+        plan.setAdditionalFeatures(String.join(", ", xfinityPlan.getAdditionalFeatures()));
+        return plan;
     }
 
 
