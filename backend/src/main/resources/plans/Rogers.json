@@ -1,0 +1,114 @@
+[
+  {
+    "name": "Starter 100 Internet",
+    "price": 75.00,
+    "dataCap": "unlimited",
+    "speedTier": "150 Mbps",
+    "connectionType": "Fiber",
+    "additionalFeatures": [
+      "Browse the web",
+      "Stream music and movies with ease"
+    ]
+  },
+  {
+    "name": "Essentials 250 Internet",
+    "price": 90.00,
+    "dataCap": "unlimited",
+    "speedTier": "300 Mbps",
+    "connectionType": "Fiber",
+    "additionalFeatures": [
+      "Download medium files",
+      "Stream in HD quality",
+      "Download music and podcasts"
+    ]
+  },
+  {
+    "name": "Popular 500 Internet",
+    "price": 55.0,
+    "dataCap": "unlimited",
+    "speedTier": "500 Mbps",
+    "connectionType": "Fiber",
+    "additionalFeatures": [
+      "Download medium files quickly",
+      "Low lag when streaming",
+      "Work and learn from home",
+      "WiFi equipment included for 12 months",
+      "Get a line of Xfinity Mobile Unlimited included for 1 year"
+    ]
+  },
+  {
+    "name": "Ultimate 1G Internet",
+    "price": 110.00,
+    "dataCap": "unlimited",
+    "speedTier": "1000 Mbps",
+    "connectionType": "Fiber",
+    "additionalFeatures": [
+      "Download large files in seconds",
+      "Ultra low lag",
+      "Stream all your favorites",
+      "WiFi equipment included for 12 months",
+      "Peacock Premium included",
+      "Get a line of Xfinity Mobile Unlimited included for 1 year"
+    ]
+  },
+  {
+    "name": "Pro 2G Internet",
+    "price": 120.00,
+    "dataCap": "unlimited",
+    "speedTier": "2000 Mbps",
+    "connectionType": "Fiber",
+    "additionalFeatures": [
+      "Maximum speed in your home",
+      "Ultra low lag",
+      "Connect and stream on 4k on every device",
+      "Unlimited data with WiFi equipment included for 12 months",
+      "Peacock Premium included",
+      "Get a line of Xfinity Mobile Unlimited included for 1 year"
+    ]
+  },
+  {
+    "name": "Essentials TV",
+    "price": 115.00,
+    "dataCap": "unlimited",
+    "speedTier": "2000 Mbps",
+    "connectionType": "Fiber",
+    "additionalFeatures": [
+      "Maximum speed in your home",
+      "Ultra low lag",
+      "Connect and stream on 4k on every device",
+      "Unlimited data with WiFi equipment included for 12 months",
+      "Peacock Premium included",
+      "Get a line of Xfinity Mobile Unlimited included for 1 year"
+    ]
+  },
+  {
+    "name": "Popular TV",
+    "price": 145.00,
+    "dataCap": "unlimited",
+    "speedTier": "2000 Mbps",
+    "connectionType": "Fiber",
+    "additionalFeatures": [
+      "Maximum speed in your home",
+      "Ultra low lag",
+      "Connect and stream on 4k on every device",
+      "Unlimited data with WiFi equipment included for 12 months",
+      "Peacock Premium included",
+      "Get a line of Xfinity Mobile Unlimited included for 1 year"
+    ]
+  },
+  {
+    "name": "Ultimate TV",
+    "price": 170.00,
+    "dataCap": "unlimited",
+    "speedTier": "2000 Mbps",
+    "connectionType": "Fiber",
+    "additionalFeatures": [
+      "Maximum speed in your home",
+      "Ultra low lag",
+      "Connect and stream on 4k on every device",
+      "Unlimited data with WiFi equipment included for 12 months",
+      "Peacock Premium included",
+      "Get a line of Xfinity Mobile Unlimited included for 1 year"
+    ]
+  }
+]
