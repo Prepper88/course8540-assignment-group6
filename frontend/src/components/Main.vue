@@ -97,6 +97,10 @@ export default {
   },
   methods: {
     onInput: debounce(async function () {
+      if (!this.keyword.trim()) {
+        this.suggestions = []
+        return
+      }
       this.suggestions = await this.fetchSuggestions(this.searchType, this.keyword)
     }, 500),
     onBlur() {
