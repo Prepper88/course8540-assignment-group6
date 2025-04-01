@@ -1,8 +1,5 @@
 package org.uwindsor.comp8547.backend.utils;
 
-/**
- * A simple data class to store the frequency of a keyword and the corresponding page URL.
- */
 public class PageFrequency {
     private int frequency;
     private String url;
@@ -18,6 +15,10 @@ public class PageFrequency {
 
     public String getUrl() {
         return url;
+    }
+
+    public void incrementFrequency() {
+        this.frequency++;
     }
 
     @Override
