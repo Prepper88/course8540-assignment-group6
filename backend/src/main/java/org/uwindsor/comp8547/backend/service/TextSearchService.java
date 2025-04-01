@@ -1,15 +1,12 @@
 package org.uwindsor.comp8547.backend.service;
-import jakarta.annotation.PostConstruct;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
-import org.uwindsor.comp8547.backend.algorithms.QuickSort;
-import org.uwindsor.comp8547.backend.bean.SearchResponse;
-import org.uwindsor.comp8547.backend.bean.TextItem;
-import org.uwindsor.comp8547.backend.crawler.SeleniumCrawler;
-import org.uwindsor.comp8547.backend.utils.PageData;
+import org.uwindsor.comp8547.backend.utils.InvertedIndex;
 import org.uwindsor.comp8547.backend.utils.PageFrequency;
 import org.uwindsor.comp8547.backend.utils.Parser;
-
+import org.uwindsor.comp8547.backend.crawler.SeleniumCrawler;
+import org.uwindsor.comp8547.backend.bean.TextItem;
+import jakarta.annotation.PostConstruct;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,28 +14,26 @@ import java.util.List;
 @Service
 public class TextSearchService {
 
-    private final List<PageData> pageDataList = new ArrayList<>();
+    private static final InvertedIndex index = InvertedIndex.getInstance();
 
     @PostConstruct
     public void runAfterStartup() {
-        String[] urls = {"https://oxio.ca/en","https://www.rogers.com/"};  //input websites to be crawled
+        String[] urls = {"https://oxio.ca/en"};  /*
         for (String url : urls) {
             SeleniumCrawler.crawlAndSave(url.trim(), 3);
         }
-
+        */
         File folder = new File("data/");
         File[] files = folder.listFiles((dir, name) -> name.endsWith(".txt"));
 
         if (files != null) {
             for (File file : files) {
-                PageData pageData = Parser.parseFile(file);
-                pageDataList.add(pageData);
-                System.out.println("Loaded file: " + file.getName());
+                Parser.parseFile(file);
+                System.out.println("Loaded and indexed file: " + file.getName());
             }
         }
+
     }
-
-
 
     public List<TextItem> search(String searchType, String keyword) {
         if (!searchType.equalsIgnoreCase("text")) {
@@ -46,24 +41,14 @@ public class TextSearchService {
         }
 
         String targetKeyword = keyword.trim().toLowerCase();
+        List<PageFrequency> results = index.search(targetKeyword);
 
-        List<PageFrequency> results = new ArrayList<>();
-
-        File folder = new File("data/");
-        File[] files = folder.listFiles((dir, name) -> name.endsWith(".txt"));
-
-        if (pageDataList != null) {
-            for (PageData pageData : pageDataList) {
-                int freq = pageData.getTree().search(targetKeyword);
-                if (freq > 0) {
-                    results.add(new PageFrequency(freq, pageData.getUrl()));
-                }
-            }
-        }
-        QuickSort.sort(results);
+        results.sort((a, b) -> Integer.compare(b.getFrequency(), a.getFrequency()));
 
         List<TextItem> textItemList = new ArrayList<>();
+
         for (PageFrequency result : results) {
+
             TextItem textItem = new TextItem();
 
             textItem.setKeyword(keyword);
@@ -71,6 +56,7 @@ public class TextSearchService {
             textItem.setOccurrences(result.getFrequency());
 
             textItemList.add(textItem);
+
         }
 
         return textItemList;
