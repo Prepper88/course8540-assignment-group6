@@ -18,11 +18,13 @@ public class TextSearchService {
 
     @PostConstruct
     public void runAfterStartup() {
-        String[] urls = {"https://oxio.ca/en"};  /*
+
+        String[] urls = {"https://oxio.ca/en","https://www.rogers.com/","https://www.teksavvy.com/"};  //input websites to be crawled
+
         for (String url : urls) {
             SeleniumCrawler.crawlAndSave(url.trim(), 3);
         }
-        */
+       
         File folder = new File("data/");
         File[] files = folder.listFiles((dir, name) -> name.endsWith(".txt"));
 
